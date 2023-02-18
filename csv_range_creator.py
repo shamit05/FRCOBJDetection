@@ -23,11 +23,17 @@ def nothing(x):
 
 
 # Set default value for Max HSV trackbars
-(a, b, c), (d, e, f) = (16, 200, 73), (97, 255, 255)
+(a, b, c), (d, e, f) = (16, 119, 80), (97, 255, 255)
 # (16, 200, 73), (97, 255, 255)
-for image_location in all_images:
+
+# define a video capture object
+vid = cv2.VideoCapture(1)
+      
+while(True):
     # Load image
-    image = cv2.imread(image_location)
+
+    ret, frame = vid.read()
+    image = frame
     image = ResizeWithAspectRatio(image, width=600)
     # Create a window
     cv2.namedWindow('image')
@@ -86,9 +92,9 @@ for image_location in all_images:
 
         # Display result image
         cv2.imshow('image', result)
+        cv2.imshow('the_image', result)
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
-    print(image_location)
     print("(%d, %d, %d), (%d, %d, %d)" % (hMin, sMin, vMin, hMax, sMax, vMax))
 
     cv2.destroyAllWindows()
