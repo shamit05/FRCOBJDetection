@@ -85,7 +85,7 @@ def main():
             continue
 
         # cone
-        output_img, x, y, w, h = object_detection(input_img, (16, 119, 93), (97, 255, 255))
+        output_img, x, y, w, h = object_detection(input_img, (10, 200, 110), (40, 255, 215))
         # (16, 176, 101), (97, 255, 255)
 
         if x != None:
@@ -104,7 +104,7 @@ def main():
         prev_h = h
 
 
-        output_img, x, y, w, h = object_detection(output_img, (107, 98, 28), (163, 242, 229))
+        output_img, x, y, w, h = object_detection(output_img, (110, 120, 40), (150, 205, 190))
 
         if x != None:
             detected += 1
